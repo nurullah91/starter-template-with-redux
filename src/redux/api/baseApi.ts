@@ -9,7 +9,7 @@ import {
 } from "@reduxjs/toolkit/query/react";
 
 import { RootState } from "../store";
-import { TResponse, TUser } from "@/src/types";
+import { TResponse, TUser } from "@/types";
 import { toast } from "sonner";
 import { logout } from "../authSlice";
 
