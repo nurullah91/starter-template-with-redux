@@ -24,18 +24,22 @@ export const authSlice = createSlice({
       state.token = token;
       Cookies.set("accessToken", token, { expires: 30 });
     },
+    setToken: (state, action) => {
+      state.token = action.payload;
+      Cookies.set("accessToken", action.payload, { expires: 30 });
+    },
 
     logout: (state) => {
       state.user = null;
       state.token = null;
 
       // Remove token from cookies
-      Cookies.remove("authToken");
+      Cookies.remove("accessToken");
     },
   },
 });
 
-export const { setUser, logout } = authSlice.actions;
+export const { setUser, logout, setToken } = authSlice.actions;
 export default authSlice.reducer;
 
 export const useCurrentToken = (state: RootState) => state.auth.token;
